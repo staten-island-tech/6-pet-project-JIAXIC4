@@ -8,6 +8,7 @@ class Hero:
         self.inventory.append(item)
         print(self.inventory)
 
+
 # #### 🧍‍♀️ Creating a Hero
 
 labubu = Hero("Jillian", 150, ["Potion"])
@@ -79,3 +80,25 @@ labubu = Hero("Jillian", 150, ["Potion"])
 # * A **private variable** for happiness level (e.g., `__happiness`)
 # * A method to **play()** that increases happiness
 # * A method to **show_status()** that prints how happy the pet is
+
+class Pet:
+    def __init__(self, name, happiness=50):
+        self.name = name
+        self.__happiness = happiness 
+
+    def play(self, minutes=5):
+        """Play with the pet to increase happiness."""
+        gained = minutes * 2
+        self.__happiness += gained
+        print(f"{self.name} played for {minutes} minutes and gained {gained} happiness.")
+
+    def show_status(self):
+        """Print the pet's current happiness."""
+        print(f"{self.name} happiness: {self.__happiness}")
+
+
+# Example usage:
+fluffy = Pet("Fluffy")
+fluffy.show_status()
+fluffy.play(10)
+fluffy.show_status()
