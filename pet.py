@@ -97,7 +97,6 @@ class Pet:
         print(f"{self.name} happiness: {self.__happiness}")
 
 
-# Example usage:
 fluffy = Pet("Fluffy")
 fluffy.show_status()
 fluffy.play(10)
