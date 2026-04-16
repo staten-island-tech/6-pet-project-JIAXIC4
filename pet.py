@@ -76,7 +76,7 @@
 
 # Create a class `Pet` that has:
 
-# * A **name**
+
 # * A **private variable** for happiness level (e.g., `__happiness`)
 # * A method to **play()** that increases happiness
 # * A method to **show_status()** that prints how happy the pet is
@@ -93,7 +93,7 @@ class Hero:
 
 
 # #### 🧍‍♀️ Creating a Hero
-labubu = Hero("Jillian", 150, ["Potion"])
+labubu = Hero("fluffy", 150, ["Potion"])
 
 # #### 💰 Buying an Item
 labubu.buy({"title": "Sword", "atk": 34})
@@ -116,13 +116,12 @@ class BankAccount:
         print(f"{self.owner} has ${self.__balance}")
 
 
-account = BankAccount("Jillian", 500)
+account = BankAccount("fluffy", 500)
 account.deposit(200)
 account.show_balance()
 
 
 # ---
-
 
 # 🐾 Pet Class (Encapsulation Practice)
 class Pet:
