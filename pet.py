@@ -91,23 +91,17 @@ class Hero:
         self.inventory.append(item)
         print(f"{self.name}'s inventory: {self.inventory}")
 
-
-# #### 🧍‍♀️ Creating a Hero
 labubu = Hero("fluffy", 150, ["Potion"])
 
-# #### 💰 Buying an Item
+
 labubu.buy({"title": "Sword", "atk": 34})
 print(labubu.__dict__)
 
 
-# ---
-
-
-# 🔒 Encapsulation Example
 class BankAccount:
     def __init__(self, owner, balance):
         self.owner = owner
-        self.__balance = balance  # private variable
+        self.__balance = balance 
 
     def deposit(self, amount):
         self.__balance += amount
@@ -121,9 +115,6 @@ account.deposit(200)
 account.show_balance()
 
 
-# ---
-
-# 🐾 Pet Class (Encapsulation Practice)
 class Pet:
     def __init__(self, name, happiness=50):
         self.name = name
@@ -135,12 +126,11 @@ class Pet:
         self.__happiness += gained
         print(f"{self.name} played for {minutes} minutes and gained {gained} happiness.")
 
-    def show_status(self):
+    def show_status(self): 
         """Print the pet's current happiness."""
         print(f"{self.name}'s happiness: {self.__happiness}")
 
 
-# 🧠 Testing Pet
 fluffy = Pet("Fluffy")
 fluffy.show_status()
 fluffy.play(10)
