@@ -39,12 +39,11 @@
 # ### Analogy:
 
 # > Imagine the Hero’s backpack is zipped shut 🎒.
-# > Only the Hero knows how to open it properly (using their methods).
+# > Only the Hero knos how to open it properly (using their methods).
 # > You don’t just reach in and mess with it directly!
 
 # In Python, we can use **naming conventions** to mark variables as “private” (for internal use only).
 
-# Example:
 
 # ```python
 # class BankAccount:
@@ -91,11 +90,6 @@ class Hero:
         self.inventory.append(item)
         print(f"{self.name}'s inventory: {self.inventory}")
 
-labubu = Hero("fluffy", 150, ["Potion"])
-
-
-labubu.buy({"title": "Sword", "atk": 34})
-print(labubu.__dict__)
 
 
 class BankAccount:
@@ -108,11 +102,6 @@ class BankAccount:
 
     def show_balance(self):
         print(f"{self.owner} has ${self.__balance}")
-
-
-account = BankAccount("fluffy", 500)
-account.deposit(200)
-account.show_balance()
 
 
 class Pet:
@@ -131,7 +120,27 @@ class Pet:
         print(f"{self.name}'s happiness: {self.__happiness}")
 
 
+labubu = Hero("fluffy", 150, ["Potion"])
+labubu.buy({"title": "Sword", "atk": 34})
+print(labubu.__dict__)
+
+account = BankAccount("fluffy", 500)
+account.deposit(200)
+account.show_balance()
+
 fluffy = Pet("Fluffy")
 fluffy.show_status()
+fluffy.play(10)
+fluffy.show_status()
+fluffy.play(10)
+fluffy.play(10)
+fluffy.show_status()
+fluffy.play(10)
+fluffy.play(10)
+fluffy.show_status()
+fluffy.play(10)
+fluffy.play(10)
+fluffy.show_status()
+fluffy.play(10)
 fluffy.play(10)
 fluffy.show_status()
