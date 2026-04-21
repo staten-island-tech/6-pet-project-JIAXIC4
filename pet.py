@@ -80,6 +80,42 @@
 # * A method to **play()** that increases happiness
 # * A method to **show_status()** that prints how happy the pet is
 
+import random
+
+print("Welcome to the pet store! Please customize your pet")
+name = input("Whats your pets name? ")
+type = input("What type of pet would you like? active, calm, lazy, or fun? ")
+money = input("How much money does your pet have? ")
+
+
+print("thank you for purchasing a pet! here is their stats", happiness)
+
+def happiness(self):
+    happiness = random.randint(1, 10)
+    print(happiness)
+
+
+def cash(z):
+
+
+    ("What would you like to do with your pet? Buy items, Play, Feed, Give water, Train, Stats: ")
+
+class Pet:
+    def __init__(self, name, happiness=50):
+        self.name = name
+        self.__happiness = happiness
+
+    def play(self, minutes=5):
+        """Play with the pet to increase happiness."""
+        gained = minutes * 2
+        self.__happiness += gained
+        print(f"{self.name} played for {minutes} minutes and gained {gained} happiness.")
+
+    def show_status(self): 
+        """Print the pet's current happiness."""
+        print(f"{self.name}'s happiness: {self.__happiness}")
+
+
 class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
@@ -104,43 +140,3 @@ class BankAccount:
         print(f"{self.owner} has ${self.__balance}")
 
 
-class Pet:
-    def __init__(self, name, happiness=50):
-        self.name = name
-        self.__happiness = happiness
-
-    def play(self, minutes=5):
-        """Play with the pet to increase happiness."""
-        gained = minutes * 2
-        self.__happiness += gained
-        print(f"{self.name} played for {minutes} minutes and gained {gained} happiness.")
-
-    def show_status(self): 
-        """Print the pet's current happiness."""
-        print(f"{self.name}'s happiness: {self.__happiness}")
-
-
-labubu = Hero("fluffy", 150, ["Potion"])
-labubu.buy({"title": "Sword", "atk": 34})
-print(labubu.__dict__)
-
-account = BankAccount("fluffy", 500)
-account.deposit(200)
-account.show_balance()
-
-fluffy = Pet("Fluffy")
-fluffy.show_status()
-fluffy.play(10)
-fluffy.show_status()
-fluffy.play(10)
-fluffy.play(10)
-fluffy.show_status()
-fluffy.play(10)
-fluffy.play(10)
-fluffy.show_status()
-fluffy.play(10)
-fluffy.play(10)
-fluffy.show_status()
-fluffy.play(10)
-fluffy.play(10)
-fluffy.show_status()
