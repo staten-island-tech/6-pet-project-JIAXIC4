@@ -88,17 +88,17 @@ type = input("What type of pet would you like? active, calm, lazy, or fun? ")
 money = input("How much money does your pet have? ")
 
 
-print("thank you for purchasing a pet! here is their stats", happiness)
+print("thank you for purchasing a pet! here is their stats", stats)
+print("What would you like to do with your pet? Buy items, Use items, Play, Feed, Give water, Train, Stats: ")
 
+def stats(items, hunger, water, happiness, train age):
+    
 def happiness(self):
     happiness = random.randint(1, 10)
     print(happiness)
 
 
-def cash(z):
 
-
-    ("What would you like to do with your pet? Buy items, Play, Feed, Give water, Train, Stats: ")
 
 class Pet:
     def __init__(self, name, happiness=50):
