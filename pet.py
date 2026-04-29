@@ -90,25 +90,44 @@ money = int(input("How much money does your pet have? "))
 
 
 class Pet:
-    def __init__(self, name, happiness=50, hunger=50, water=50):
+    def __init__(self, name, happiness=50, hunger=50, energy = 0, water=50):
         self.name = name
-        self.__happiness = happiness  # private variable
+        self.__happiness = happiness  
         self.hunger = hunger
         self.water = water
+        self.energy = energy
         self.inventory = []
 
     def play(self, minutes=5):
-        gained = minutes * 2
-        self.__happiness += gained
-        print(f"{self.name} played and gained {gained} happiness!")
+        if self.__happiness < 100:
+            gained = minutes * 2
+            self.__happiness += gained
+            print(f"{self.name} played and gained {gained} happiness! Here is the new status:{self.__happiness}")
+        
+        if self.__happiness >= 100:
+            print(f"{self.name} is too happy, no more playing.")
 
     def feed(self):
-        self.hunger -= 10
-        print(f"{self.name} has been fed.")
+        if self.hunger < 100:
+            self.hunger += 10
+            print(f"{self.name} has been fed. Here is the new status:{self.hunger}")
+        if self.hunger >= 100: 
+            print(f"{self.name} is full.")
+
+    def sleep(self):
+        if self.energy < 100:
+            self.energy += 50
+            print(f"{self.name} slept for 5 hours. Here is the new status:{self.energy}" )
+        if self.energy >= 100: 
+            print(f"{self.name} is not tired.")
 
     def give_water(self):
-        self.water -= 10
-        print(f"{self.name} drank some water.")
+        if self.water < 100:
+            self.water += 10
+            print(f"{self.name} drank some water. Here is the new status:{self.water}")
+        if self.water >= 100: 
+            print(f"{self.name} is not thursty.")
+
 
     def show_status(self):
         print("\n--- PET STATUS ---")
@@ -116,6 +135,7 @@ class Pet:
         print(f"Hunger: {self.hunger}")
         print(f"Water: {self.water}")
         print(f"Happiness: {self.__happiness}")
+        print(f"Energy: {self.energy}")
         print(f"Inventory: {self.inventory}")
 
 
@@ -159,8 +179,9 @@ while True:
     print("2. Feed")
     print("3. Give Water")
     print("4. Buy Item")
-    print("5. Show Stats")
-    print("6. Quit")
+    print("5. Sleep")
+    print("6. Show Stats")
+    print("7. Quit")
 
     choice = input("> ")
 
@@ -179,9 +200,12 @@ while True:
         pet.inventory.append(item)
 
     elif choice == "5":
-        pet.show_status()
+        pet.sleep()
 
     elif choice == "6":
+        pet.show_status()
+
+    elif choice == "7":
         print("Goodbye!")
         break
 
