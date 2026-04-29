@@ -83,37 +83,41 @@
 import random
 
 print("Welcome to the pet store! Please customize your pet")
-name = input("Whats your pets name? ")
-type = input("What type of pet would you like? active, calm, lazy, or fun? ")
-money = input("How much money does your pet have? ")
 
-
-print("thank you for purchasing a pet! here is their stats", stats)
-print("What would you like to do with your pet? Buy items, Use items, Play, Feed, Give water, Train, Stats: ")
-
-def stats(items, hunger, water, happiness, train age):
-    
-def happiness(self):
-    happiness = random.randint(1, 10)
-    print(happiness)
-
-
+name = input("What's your pet's name? ")
+pet_type = input("What type of pet would you like? (active, calm, lazy, fun): ")
+money = int(input("How much money does your pet have? "))
 
 
 class Pet:
-    def __init__(self, name, happiness=50):
+    def __init__(self, name, happiness=50, hunger=50, water=50):
         self.name = name
-        self.__happiness = happiness
+        self.__happiness = happiness  # private variable
+        self.hunger = hunger
+        self.water = water
+        self.inventory = []
 
     def play(self, minutes=5):
-        """Play with the pet to increase happiness."""
         gained = minutes * 2
         self.__happiness += gained
-        print(f"{self.name} played for {minutes} minutes and gained {gained} happiness.")
+        print(f"{self.name} played and gained {gained} happiness!")
 
-    def show_status(self): 
-        """Print the pet's current happiness."""
-        print(f"{self.name}'s happiness: {self.__happiness}")
+    def feed(self):
+        self.hunger -= 10
+        print(f"{self.name} has been fed.")
+
+    def give_water(self):
+        self.water -= 10
+        print(f"{self.name} drank some water.")
+
+    def show_status(self):
+        print("\n--- PET STATUS ---")
+        print(f"Name: {self.name}")
+        print(f"Hunger: {self.hunger}")
+        print(f"Water: {self.water}")
+        print(f"Happiness: {self.__happiness}")
+        print(f"Inventory: {self.inventory}")
+
 
 
 class Hero:
@@ -131,7 +135,7 @@ class Hero:
 class BankAccount:
     def __init__(self, owner, balance):
         self.owner = owner
-        self.__balance = balance 
+        self.__balance = balance
 
     def deposit(self, amount):
         self.__balance += amount
@@ -140,3 +144,46 @@ class BankAccount:
         print(f"{self.owner} has ${self.__balance}")
 
 
+
+pet = Pet(name)
+player = Hero(name, money, ["Starter Toy"])
+
+print("\nThank you for purchasing a pet!")
+pet.show_status()
+
+
+
+while True:
+    print("\nWhat would you like to do?")
+    print("1. Play")
+    print("2. Feed")
+    print("3. Give Water")
+    print("4. Buy Item")
+    print("5. Show Stats")
+    print("6. Quit")
+
+    choice = input("> ")
+
+    if choice == "1":
+        pet.play()
+
+    elif choice == "2":
+        pet.feed()
+
+    elif choice == "3":
+        pet.give_water()
+
+    elif choice == "4":
+        item = input("Enter item name: ")
+        player.buy(item)
+        pet.inventory.append(item)
+
+    elif choice == "5":
+        pet.show_status()
+
+    elif choice == "6":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.")
